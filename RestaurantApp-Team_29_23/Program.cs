@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,13 @@ namespace RestaurantApp_Team_29_23
     {
         new Restaurant { Name = "KFC", Type = "Fast Food", Rating = 4.2 },
         new Restaurant { Name = "MK", Type = "Suki", Rating = 4.7 },
-        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 }
+        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 },
+        new Restaurant { Name = "Mcdonald's", Type = "Fast Food", Rating = 4.1 },
+        new Restaurant { Name = "Tee noi", Type = "Suki", Rating = 4.3 },
+        new Restaurant { Name = "Taco Bell", Type = "Fast Food", Rating = 4.8 },
+        new Restaurant { Name = "Oishi Eaterium", Type = "Buffet", Rating = 4.5 },
+        new Restaurant { Name = "e-coffee", Type = "Cafe", Rating = 3.9 },
+        new Restaurant { Name = "Bearhouse", Type = "Drinking", Rating = 4.0 }
     };
 
         static void Main(string[] args)
@@ -58,9 +65,16 @@ namespace RestaurantApp_Team_29_23
         // คน A รับผิดชอบ
         static void AddRestaurant()
         {
-            Console.WriteLine("Not completed");
-            
+            foreach (Restaurant r in restaurants)
+            {
+                Console.WriteLine(
+                r.Name + " | " +
+                r.Type + " | " +
+                r.Rating
+                );
+            }
         }
+        
 
         // คน B รับผิดชอบ
         static void ShowGoodRating()
