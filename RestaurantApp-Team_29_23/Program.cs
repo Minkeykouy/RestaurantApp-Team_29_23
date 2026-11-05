@@ -65,7 +65,19 @@ namespace RestaurantApp_Team_29_23
         // คน B รับผิดชอบ
         static void ShowGoodRating()
         {
-            Console.WriteLine("Not completed");
+            Console.WriteLine("===== Good Rating Restautants =====");
+
+            foreach (Restaurant r in restaurants)
+            {
+                if (r.Rating >= 4.5)
+                {
+                    Console.WriteLine("Name :" + r.Name);
+                    Console.WriteLine("Type :" + r.Type);
+                    Console.WriteLine("Rating : " + r.Rating);
+                    Console.WriteLine("----------------------");
+                }
+
+            }
         }
 
         // คน C รับผิดชอบ
@@ -76,3 +88,7 @@ namespace RestaurantApp_Team_29_23
     }
 
 }
+ //Tipdee
+
+
+
