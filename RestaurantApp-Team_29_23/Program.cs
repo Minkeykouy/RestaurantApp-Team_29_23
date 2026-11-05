@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,9 +59,16 @@ namespace RestaurantApp_Team_29_23
         // คน A รับผิดชอบ
         static void AddRestaurant()
         {
-            Console.WriteLine("Not completed");
-            
+            foreach (Restaurant r in restaurants)
+            {
+                Console.WriteLine(
+                r.Name + " | " +
+                r.Type + " | " +
+                r.Rating
+                );
+            }
         }
+        
 
         // คน B รับผิดชอบ
         static void ShowGoodRating()
