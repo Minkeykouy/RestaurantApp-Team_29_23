@@ -15,12 +15,11 @@ namespace RestaurantApp_Team_29_23
 
     internal class Program
     {
-        static List<Restaurant> Restaurants = new List<Restaurant>
+        static List<Restaurant> restaurants = new List<Restaurant>
     {
         new Restaurant { Name = "KFC", Type = "Fast Food", Rating = 4.2 },
         new Restaurant { Name = "MK", Type = "Suki", Rating = 4.7 },
-        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 },
-        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 },
+        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.9 },
         new Restaurant { Name = "Mcdonald's", Type = "Fast Food", Rating = 4.1 },
         new Restaurant { Name = "Tee noi", Type = "Suki", Rating = 4.3 },
         new Restaurant { Name = "Taco Bell", Type = "Fast Food", Rating = 4.8 },
@@ -78,19 +77,29 @@ namespace RestaurantApp_Team_29_23
         // คน C รับผิดชอบ
         static void ShowSummary()
         {
-            double total = 0;
+            
             double highest = double.MinValue;
-            foreach (Restaurant res in Restaurants)
+            foreach (Restaurant res in restaurants)
             {
-                total += res.Rating;
-                if (res.Rating > highest)
+                Restaurant hightest = restaurants[0];
+                Restaurant lowest = restaurants[0];
+
+                foreach (Restaurant restaurant in restaurants)
                 {
-                    highest = res.Rating;
+                    if (restaurant.Rating > hightest.Rating)
+                    {
+                        hightest = restaurant;
+                    }
+                    if (restaurant.Rating < lowest.Rating)
+                    {
+                        lowest = restaurant;
+                    }
                 }
-                double average = total / Restaurants.Count;
-                Console.WriteLine("จำนวนร้าน: " + Restaurants.Count);
-                Console.WriteLine($"คะแนนเฉลี่ย: " + average.ToString("F2"));
-                Console.WriteLine($"คะแนนสูงสุด: " + highest);
+                Console.WriteLine("ร้านคะแนนสูงสุด : " + hightest.Name);
+                Console.WriteLine("คะแนน: " + hightest.Rating);
+                Console.WriteLine("ร้านคะแนนต่ำสุด : " + lowest.Name);
+                Console.WriteLine("คะแนน: " + lowest.Rating);
+                break;
             }
         }
     }
