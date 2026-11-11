@@ -27,6 +27,8 @@ namespace RestaurantApp_Team_29_23
         new Restaurant { Name = "Oishi Eaterium", Type = "Buffet", Rating = 4.5 },
         new Restaurant { Name = "e-coffee", Type = "Cafe", Rating = 3.9 },
         new Restaurant { Name = "Bearhouse", Type = "Drinking", Rating = 4.0 }
+=======
+
     };
 
         static void Main(string[] args)
@@ -85,7 +87,30 @@ namespace RestaurantApp_Team_29_23
         // คน C รับผิดชอบ
         static void ShowSummary()
         {
-            Console.WriteLine("Not completed");
+            
+            double highest = double.MinValue;
+            foreach (Restaurant res in restaurants)
+            {
+                Restaurant hightest = restaurants[0];
+                Restaurant lowest = restaurants[0];
+
+                foreach (Restaurant restaurant in restaurants)
+                {
+                    if (restaurant.Rating > hightest.Rating)
+                    {
+                        hightest = restaurant;
+                    }
+                    if (restaurant.Rating < lowest.Rating)
+                    {
+                        lowest = restaurant;
+                    }
+                }
+                Console.WriteLine("ร้านคะแนนสูงสุด : " + hightest.Name);
+                Console.WriteLine("คะแนน: " + hightest.Rating);
+                Console.WriteLine("ร้านคะแนนต่ำสุด : " + lowest.Name);
+                Console.WriteLine("คะแนน: " + lowest.Rating);
+                break;
+            }
         }
     }
 
