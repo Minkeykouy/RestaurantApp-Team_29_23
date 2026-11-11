@@ -19,7 +19,13 @@ namespace RestaurantApp_Team_29_23
     {
         new Restaurant { Name = "KFC", Type = "Fast Food", Rating = 4.2 },
         new Restaurant { Name = "MK", Type = "Suki", Rating = 4.7 },
-        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 }
+        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.9 },
+        new Restaurant { Name = "Mcdonald's", Type = "Fast Food", Rating = 4.1 },
+        new Restaurant { Name = "Tee noi", Type = "Suki", Rating = 4.3 },
+        new Restaurant { Name = "Taco Bell", Type = "Fast Food", Rating = 4.8 },
+        new Restaurant { Name = "Oishi Eaterium", Type = "Buffet", Rating = 4.5 },
+        new Restaurant { Name = "e-coffee", Type = "Cafe", Rating = 3.9 },
+        new Restaurant { Name = "Bearhouse", Type = "Drinking", Rating = 4.1 }
     };
 
         static void Main(string[] args)
@@ -71,7 +77,30 @@ namespace RestaurantApp_Team_29_23
         // คน C รับผิดชอบ
         static void ShowSummary()
         {
-            Console.WriteLine("Not completed");
+            
+            double highest = double.MinValue;
+            foreach (Restaurant res in restaurants)
+            {
+                Restaurant hightest = restaurants[0];
+                Restaurant lowest = restaurants[0];
+
+                foreach (Restaurant restaurant in restaurants)
+                {
+                    if (restaurant.Rating > hightest.Rating)
+                    {
+                        hightest = restaurant;
+                    }
+                    if (restaurant.Rating < lowest.Rating)
+                    {
+                        lowest = restaurant;
+                    }
+                }
+                Console.WriteLine("ร้านคะแนนสูงสุด : " + hightest.Name);
+                Console.WriteLine("คะแนน: " + hightest.Rating);
+                Console.WriteLine("ร้านคะแนนต่ำสุด : " + lowest.Name);
+                Console.WriteLine("คะแนน: " + lowest.Rating);
+                break;
+            }
         }
     }
 
